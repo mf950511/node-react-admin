@@ -1,16 +1,16 @@
+const path = require('path')
 const Koa = require('koa')
 const app = new Koa()
-const session = require('koa-session')
+const koaSession = require('koa-session')
 const router = require('./router')
-
-const sessionConfig = {
-  key: 'sessionId',
-  httpOnly: true,
-  signed: false
-}
+const serve = require('koa-static')
+const sessionMiddleWares = require('./middlewares/session')
+const { sessionConfig } = require('./config')
 
 app.
-use(session(sessionConfig, app)).
+use(serve(path.resolve(__dirname, 'static'))).
+use(koaSession(sessionConfig, app)).
+use(sessionMiddleWares).
 use(router.routes()).
 use(router.allowedMethods())
 
