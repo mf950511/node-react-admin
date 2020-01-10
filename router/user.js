@@ -6,7 +6,6 @@ router.get('/b', async (ctx, next) => {
   
 })
 router.get('/asd', async (ctx, next) => {
-  ctx.session.sessionId = ''
   const sessionId = await ctx.sessions.set({
     username: '张三',
     age: 24
