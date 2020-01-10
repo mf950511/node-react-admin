@@ -15,7 +15,7 @@ router.get('/asd', async (ctx, next) => {
   ctx.body = sessionId
 })
 router.get('/a', async (ctx, next) => {
-  const sessionData = ctx.sessions.get()
+  const sessionData = await ctx.sessions.get()
   ctx.body = sessionData 
 })
 

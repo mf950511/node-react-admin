@@ -21,22 +21,17 @@ class Session {
 
   async set(updateSessionData = {}){
     let sessionId = this.getSessionId()
-    console.log(123123, sessionId)
     if(!await this.check()) {
       sessionId = sha1(createTimeRstr(16))
     }
-    console.log(123123, sessionId)
     const sessionData = await store.get(sessionId)
-    console.log(123123, sessionData)
     await store.set(sessionId, {
       ...sessionData,
       ...updateSessionData,
       timeStr: Date.now()
     })
-    console.log(345345, sessionId)
     const time = sessionData && sessionData.invalidSessionTime
     await store.pexpire(sessionId, time || 24 * 60 * 60 * 1000)
-    console.log(123123, sessionId)
     return sessionId
   }
   async clear(sessionUpdate={}){

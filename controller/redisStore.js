@@ -1,7 +1,7 @@
 const redis = require('redis')
 const { redisConfig } = require('../config')
 
-let client = redis.createClient({...redisConfig, retry_strategy: function(){
+let client = redis.createClient({...redisConfig, retry_strategy: function(error){
   console.log("----------------------- 重新连接 -----------------------");
 	console.log(error);
 	return 5000;
@@ -16,14 +16,11 @@ console.log("----------------------- redis store -----------------------")
 
 class RedisStore{
   get(key){
-    console.log(3455, key)
     return new Promise((res, rej) => {
       if(!key) {
         res(null)
       }
-      console.log(34555, key)
       client.get(`react_node_${key}`, function(error, data){
-        console.log(3455, error, data)
         if(error) {
           rej({
             msg: error,
@@ -43,7 +40,6 @@ class RedisStore{
       }
       value = JSON.stringify(value)
       client.set(`react_node_${key}`, value, function(err){
-        console.log(123123123, err)
         if(err) {
           rej({
             msg: err,
