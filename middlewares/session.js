@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-01-10 14:06:03
+ * @LastEditTime: 2020-07-14 16:11:02
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \react-admin-node\middlewares\session.js
+ */ 
 const sha1 = require('sha1') // 加密
 const { createTimeRstr } = require('../controller/base')
 const RedisStore = require('../controller/redisStore')
@@ -13,6 +21,12 @@ class Session {
   getSessionId(){
     return this.ctx.session && this.ctx.session.sessionId || ''
   }
+
+  async del(){
+    const sessionId = this.getSessionId()
+    return await store.del(sessionId)
+  }
+
   async get(){
     let sessionId = this.getSessionId()
     let sessionData = await store.get(sessionId)
