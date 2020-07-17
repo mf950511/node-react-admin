@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-01-09 08:39:03
- * @LastEditTime: 2020-07-14 17:06:44
+ * @LastEditTime: 2020-07-16 10:46:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \react-admin-node\router\user.js
@@ -38,7 +38,7 @@ router.get('/a', async (ctx, next) => {
   }
 })
 
-router.get('/logout', async (ctx, next) => {
+router.post('/logout', async (ctx, next) => {
   const result = await ctx.sessions.del()
   ctx.session = null
   console.log(result)
