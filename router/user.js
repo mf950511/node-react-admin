@@ -1,12 +1,5 @@
-/*
- * @Author: your name
- * @Date: 2020-01-09 08:39:03
- * @LastEditTime: 2020-07-16 10:46:27
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \react-admin-node\router\user.js
- */ 
 const Router = require('koa-router')
+const menu = require('../config/menu.json')
 const router = new Router({
   prefix: '/user'
 })
@@ -14,29 +7,6 @@ const router = new Router({
 const { usernameList } = require('../config/userAuth.js')
 
 const { data } = require('../codeDictionary.json')
-
-router.get('/b', async (ctx, next) => {
-  
-})
-router.get('/asd', async (ctx, next) => {
-  const sessionId = await ctx.sessions.set({
-    username: '张三',
-    age: 24
-  })
-  ctx.session.sessionId = sessionId
-  ctx.body = sessionId
-})
-router.get('/a', async (ctx, next) => {
-  const sessionData = await ctx.sessions.get()
-  console.log('sessionData', sessionData)
-  if(!sessionData) {
-    ctx.body = {
-      data: '123'
-    }
-  } else {
-    ctx.body = sessionData 
-  }
-})
 
 router.post('/logout', async (ctx, next) => {
   const result = await ctx.sessions.del()
@@ -59,6 +29,7 @@ router.post('/login', async (ctx, next) => {
     }
   }
   // 存储登录相关信息至redis
+  body.menu = menu[username]
   const sessionId = await ctx.sessions.set(body)
   // 设置session
   ctx.session.sessionId = sessionId
@@ -69,6 +40,18 @@ router.post('/login', async (ctx, next) => {
       sessionId
     },
     msg: '登陆成功'
+  }
+})
+
+router.post('/menu', async(ctx, next) => {
+  const session = await ctx.sessions.get()
+  const { menu } = session || {}
+  return ctx.body = {
+    code: 0,
+    data: {
+      menu
+    },
+    msg: 'success'
   }
 })
 

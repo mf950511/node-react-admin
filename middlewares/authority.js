@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-17 09:56:08
- * @LastEditTime: 2020-07-17 14:29:56
+ * @LastEditTime: 2020-07-24 10:50:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \react-admin-node\middlewares\authority.js
@@ -24,7 +24,8 @@ const authority = async (ctx, next) => {
 // 相关接口过滤
 authority.unless = function() {
   return unless.call(this, { path: [
-    '/api/user/login'
+    '/api/user/login',
+    '/api/user/logout'
   ]})
 }
 
