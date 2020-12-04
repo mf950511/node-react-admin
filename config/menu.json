@@ -1,88 +1,151 @@
 {
   "admin": [
     {
-        "breadcrumbName":"首页",
+        "breadcrumbName":"index",
         "icon":"BankOutlined",
         "path":"/index"
     },
     {
-        "breadcrumbName":"文档",
+        "breadcrumbName":"doc",
         "icon":"FileTextOutlined",
         "path":"/doc"
     },
     {
-        "breadcrumbName":"引导页",
+        "breadcrumbName":"guide",
         "icon":"SendOutlined",
         "path":"/guide"
     },
     {
-        "breadcrumbName":"权限测试页",
+        "breadcrumbName":"permission",
         "icon":"PropertySafetyOutlined",
         "path":"/authority",
         "children":[
             {
-                "breadcrumbName":"页面权限",
+                "breadcrumbName":"pagePermission",
                 "path":"/pageAuthority"
             },
             {
-                "breadcrumbName":"角色权限",
+                "breadcrumbName":"rolePermission",
                 "path":"/characterAuthority",
                 "icon":"SendOutlined"
-            },
+            }
+        ]
+    },
+    {
+        "breadcrumbName": "routeTitle",
+        "path":"/child",
+        "children":[
             {
-                "breadcrumbName":"子路由",
-                "path":"/child",
-                "children":[
+                "breadcrumbName":"route1",
+                "path":"/routerTest1",
+                "icon":"SendOutlined",
+                "children": [
                     {
-                        "breadcrumbName":"路由1",
-                        "path":"/routerTest1",
+                        "breadcrumbName":"route11",
+                        "path":"/routerTest11",
                         "icon":"SendOutlined"
                     },
                     {
-                        "breadcrumbName":"路由2",
-                        "path":"/routerTest2",
+                        "breadcrumbName":"route12",
+                        "path":"/routerTest12",
+                        "icon":"SendOutlined",
+                        "children": [
+                            {
+                                "breadcrumbName":"route121",
+                                "path":"/routerTest121",
+                                "icon":"SendOutlined"
+                                
+                            },
+                            {
+                                "breadcrumbName":"route122",
+                                "path":"/routerTest122",
+                                "icon":"SendOutlined"
+                            }
+                        ]
+                    },
+                    {
+                        "breadcrumbName":"route13",
+                        "path":"/routerTest13",
                         "icon":"SendOutlined"
-                    }]
-            }]
+                    }
+                ]
+            },
+            {
+                "breadcrumbName":"route2",
+                "path":"/routerTest2",
+                "icon":"SendOutlined"
+            }
+        ]
     }
   ],
   "editor": [
     {
-        "breadcrumbName":"首页",
+        "breadcrumbName":"index",
         "icon":"BankOutlined",
         "path":"/index"
     },
     {
-        "breadcrumbName":"文档",
+        "breadcrumbName":"doc",
         "icon":"FileTextOutlined",
         "path":"/doc"
     },
     {
-        "breadcrumbName":"引导页",
+        "breadcrumbName":"guide",
         "icon":"SendOutlined",
         "path":"/guide"
     },
     {
-        "breadcrumbName":"权限测试页",
+        "breadcrumbName":"permission",
         "icon":"PropertySafetyOutlined",
-        "path":"/authority",
+        "path":"/authority"
+    },
+    {
+        "breadcrumbName": "routeTitle",
+        "path":"/child",
         "children":[
             {
-                "breadcrumbName":"子路由",
-                "path":"/child",
-                "children":[
+                "breadcrumbName":"route1",
+                "path":"/routerTest1",
+                "icon":"SendOutlined",
+                "children": [
                     {
-                        "breadcrumbName":"路由1",
-                        "path":"/routerTest1",
+                        "breadcrumbName":"route11",
+                        "path":"/routerTest11",
                         "icon":"SendOutlined"
                     },
                     {
-                        "breadcrumbName":"路由2",
-                        "path":"/routerTest2",
+                        "breadcrumbName":"route12",
+                        "path":"/routerTest12",
+                        "icon":"SendOutlined",
+                        "children": [
+                            {
+                                "breadcrumbName":"route121",
+                                "path":"/routerTest121",
+                                "icon":"SendOutlined"
+                                
+                            },
+                            {
+                                "breadcrumbName":"route122",
+                                "path":"/routerTest122",
+                                "icon":"SendOutlined"
+                            }
+                        ]
+                    },
+                    {
+                        "breadcrumbName":"route13",
+                        "path":"/routerTest13",
                         "icon":"SendOutlined"
-                    }]
-            }]
-    }]
+                    }
+                ]
+            },
+            {
+                "breadcrumbName":"route2",
+                "path":"/routerTest2",
+                "icon":"SendOutlined"
+            }
+        ]
+    }
+]
 
 
 }
